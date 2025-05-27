@@ -16,6 +16,7 @@ class MyState extends ChangeNotifier {
       text = body['text'];
     } catch (err) {
       text = "ERROR!";
+      // ignore: avoid_print
       print(err);
     }
 
