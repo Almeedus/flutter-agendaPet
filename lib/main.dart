@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Agenda Pet',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        fontFamily: 'KumbhSans',
         primarySwatch: Colors.blue,
       ),
       home: const SplashPage(), // Aqui você define sua tela inicial
