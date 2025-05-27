@@ -13,7 +13,7 @@ class RoundButton extends StatelessWidget {
       elevation: 4,
       child: Ink(
         decoration: const ShapeDecoration(
-          color: Colors.grey, // cor do botão
+          color: Colors.grey,
           shape: CircleBorder(),
         ),
         child: IconButton(
