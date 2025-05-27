@@ -16,9 +16,15 @@ class RoundButton extends StatelessWidget {
           color: Colors.grey,
           shape: CircleBorder(),
         ),
-        child: IconButton(
-          icon: const Icon(Icons.arrow_forward, color: Colors.white),
-          onPressed: onPressed,
+        child: SizedBox(
+          width: 61,
+          height: 61,
+          child: IconButton(
+            icon: const Icon(Icons.arrow_forward, color: Colors.white),
+            iconSize: 32,
+            padding: EdgeInsets.zero,
+            onPressed: onPressed,
+          ),
         ),
       ),
     );
