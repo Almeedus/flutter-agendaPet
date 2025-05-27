@@ -11,21 +11,20 @@ class SplashPage extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          // Conteúdo centralizado
           Center(
             child: SingleChildScrollView(
               padding:
                   const EdgeInsets.symmetric(horizontal: 30.0, vertical: 60),
               child: Column(
-                mainAxisSize: MainAxisSize.min, // evita ocupar altura infinita
+                mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const Text(
                     'Agenda Pet',
                     style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromRGBO(87, 87, 87, 1)),
                   ),
                   const SizedBox(height: 20),
                   Container(
@@ -36,23 +35,14 @@ class SplashPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),
-                  const SizedBox(height: 30),
                   const Text(
-                    'Descrição do app',
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                  const SizedBox(height: 10),
-                  Container(
-                    height: 20,
-                    width: 150,
-                    color: Colors.grey[300],
+                    'Um app para cuidar de quem você mais ama.',
+                    style: TextStyle(color: Color.fromARGB(255, 124, 124, 124)),
                   ),
                 ],
               ),
             ),
           ),
-
-          // Botão fixo no canto inferior direito
           Positioned(
             bottom: 100,
             right: 50,
