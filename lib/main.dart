@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'screens/splash.dart';
+import 'package:device_frame/device_frame.dart';
+import 'theme.dart';    // seu tema já criado
+import 'routes.dart';   // suas rotas já criadas
 
 void main() {
   runApp(const MyApp());
@@ -11,13 +13,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Agenda Pet',
+      title: 'Seu App',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        fontFamily: 'KumbhSans',
-        primarySwatch: Colors.blue,
-      ),
-      home: const SplashPage(), // Aqui você define sua tela inicial
+      theme: appTheme,   // tema definido em theme.dart
+      initialRoute: '/',
+      routes: appRoutes, // rotas definidas em routes.dart
+      builder: (context, child) {
+        // AQUI envolve as telas no DeviceFrame para layout mobile
+        return Directionality(      // Corrige o erro de Directionality
+          textDirection: TextDirection.ltr,
+          child: DeviceFrame(
+            device: Devices.android.samsungGalaxyS20, // celular que quer simular
+            screen: child!, // tela atual do app
+          ),
+        );
+      },
     );
   }
 }
