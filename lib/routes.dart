@@ -6,6 +6,8 @@ import 'screens/home.dart';
 import 'screens/pet_form.dart';
 import 'screens/pet_profile.dart';
 import 'screens/vaccine_form.dart';
+import 'screens/main_screen.dart'; 
+
 
 final Map<String, WidgetBuilder> appRoutes = {
   '/': (context) => const SplashScreen(),
@@ -15,4 +17,5 @@ final Map<String, WidgetBuilder> appRoutes = {
   '/pet_form': (_) => const PetFormScreen(),
   '/pet_profile': (_) => const PetProfileScreen(),
   '/vaccine_form': (_) => const VaccineFormScreen(),
+  '/main': (_) => const MainScreen(),
 };

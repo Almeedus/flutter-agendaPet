@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'register.dart';
-import 'home.dart';
+import 'main_screen.dart'; // <-- Importa a MainScreen
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -100,9 +100,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 onPressed: () {
+                  // Redireciona para a tela com menu inferior após o login
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (_) => const HomeScreen()),
+                    MaterialPageRoute(builder: (_) => const MainScreen()),
                   );
                 },
                 child: Text(
@@ -121,7 +122,7 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 48,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFD9D4C8), // bege frio
+                  backgroundColor: const Color(0xFFD9D4C8),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(24),
                   ),
@@ -137,7 +138,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: GoogleFonts.kumbhSans(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: const Color(0xFF5D3A9B), // cor roxa do app para o texto
+                    color: const Color(0xFF5D3A9B),
                   ),
                 ),
               ),
