@@ -1,49 +1,55 @@
 // lib/screens/splash.dart
-
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'login.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+class SplashScreen extends StatelessWidget {
+  final String imageUrl;
 
-  @override
-  State<SplashScreen> createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(const Duration(seconds: 5), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (_) => const LoginScreen()),
-      );
-    });
-  }
+  const SplashScreen({super.key, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.orange,
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(24),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              'assets/images/logo.png',
-              width: 120,
-              height: 120,
+            const Spacer(),
+            ClipOval(
+              child: Image.network(
+                imageUrl,
+                width: 120,
+                height: 120,
+                fit: BoxFit.cover,
+              ),
             ),
             const SizedBox(height: 24),
-            const Text(
+            Text(
               'Agenda Pet',
-              style: TextStyle(
+              style: GoogleFonts.kumbhSans(
                 fontSize: 24,
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
-            )
+            ),
+            const Spacer(),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: FloatingActionButton(
+                backgroundColor: Colors.white,
+                mini: true,
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (_) => const LoginScreen()),
+                  );
+                },
+                child: const Icon(Icons.arrow_forward, color: Colors.orange),
+              ),
+            ),
           ],
         ),
       ),

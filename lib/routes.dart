@@ -10,7 +10,9 @@ import 'screens/pet_profile.dart';
 import 'screens/vaccine_form.dart';
 
 final Map<String, WidgetBuilder> appRoutes = {
-  '/': (_) => const SplashScreen(),
+  '/': (context) => const SplashScreen(
+        imageUrl: 'https://link.com/imagem.png', // link pra imagem da tela splash
+      ),
   '/login': (_) => const LoginScreen(),
   '/register': (_) => const RegisterScreen(),
   '/home': (_) => const HomeScreen(),
