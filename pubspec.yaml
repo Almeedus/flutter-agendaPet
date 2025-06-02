@@ -31,6 +31,10 @@ dependencies:
   flutter:
     sdk: flutter
   device_frame: ^1.2.0
+  google_fonts: ^6.1.0
+  http: 1.4.0
+  
+
   
 
 
@@ -94,8 +98,13 @@ flutter:
 
   assets:
     - assets/fonts/
+    - assets/images/AdobeStock_314100817.jpeg
+  
+
 
   fonts:
     - family: KumbhSans
       fonts:
         - asset: assets/fonts/KumbhSans.ttf
+
+        
