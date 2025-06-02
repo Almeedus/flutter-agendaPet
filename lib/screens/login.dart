@@ -1,6 +1,7 @@
 // lib/screens/login.dart
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'register.dart';
 import 'home.dart';
 
@@ -19,57 +20,127 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Login')),
+      appBar: AppBar(
+        title: Text('Login', style: GoogleFonts.inter()),
+        backgroundColor: const Color(0xFF5D3A9B),
+        centerTitle: true,
+      ),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 24),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Center(
+              child: Text(
+                'Entrar no Pettuno',
+                style: GoogleFonts.kumbhSans(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.black87,
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
             TextField(
               controller: _emailController,
               keyboardType: TextInputType.emailAddress,
-              decoration: const InputDecoration(
+              style: GoogleFonts.inter(),
+              decoration: InputDecoration(
                 labelText: 'E-mail',
-                prefixIcon: Icon(Icons.email),
+                prefixIcon: const Icon(Icons.email),
+                contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(24),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(24),
+                  borderSide: const BorderSide(color: Colors.grey),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(24),
+                  borderSide: const BorderSide(color: Color(0xFF5D3A9B), width: 2),
+                ),
               ),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 20),
             TextField(
               controller: _passwordController,
               obscureText: _obscureText,
+              style: GoogleFonts.inter(),
               decoration: InputDecoration(
                 labelText: 'Senha',
                 prefixIcon: const Icon(Icons.lock),
                 suffixIcon: IconButton(
-                  icon: Icon(
-                    _obscureText ? Icons.visibility : Icons.visibility_off,
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      _obscureText = !_obscureText;
-                    });
-                  },
+                  icon: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
+                  onPressed: () => setState(() => _obscureText = !_obscureText),
+                ),
+                contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(24),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(24),
+                  borderSide: const BorderSide(color: Colors.grey),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(24),
+                  borderSide: const BorderSide(color: Color(0xFF5D3A9B), width: 2),
                 ),
               ),
             ),
-            const SizedBox(height: 24),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (_) => const HomeScreen()),
-                );
-              },
-              child: const Text('Entrar'),
+            const SizedBox(height: 30),
+            SizedBox(
+              width: double.infinity,
+              height: 48,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.orange,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(24),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (_) => const HomeScreen()),
+                  );
+                },
+                child: Text(
+                  'Entrar',
+                  style: GoogleFonts.kumbhSans(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
             ),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => const RegisterScreen()),
-                );
-              },
-              child: const Text('Criar conta'),
+            const SizedBox(height: 12),
+            SizedBox(
+              width: double.infinity,
+              height: 48,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFFD9D4C8), // bege frio
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(24),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => const RegisterScreen()),
+                  );
+                },
+                child: Text(
+                  'Criar conta',
+                  style: GoogleFonts.kumbhSans(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: const Color(0xFF5D3A9B), // cor roxa do app para o texto
+                  ),
+                ),
+              ),
             ),
           ],
         ),
