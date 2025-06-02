@@ -20,10 +20,10 @@ class MyApp extends StatelessWidget {
       routes: appRoutes, // rotas definidas em routes.dart
       builder: (context, child) {
         // AQUI envolve as telas no DeviceFrame para layout mobile
-        return Directionality(      // Corrige o erro de Directionality
+        return Directionality(      // Corrige um erro de Directionality que impedia de rodar o app
           textDirection: TextDirection.ltr,
           child: DeviceFrame(
-            device: Devices.android.samsungGalaxyS20, // celular que quer simular
+            device: Devices.android.samsungGalaxyS20, // 
             screen: child!, // tela atual do app
           ),
         );
