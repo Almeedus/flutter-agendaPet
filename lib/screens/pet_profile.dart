@@ -1,13 +1,13 @@
 // lib/screens/pet_profile.dart
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class PetProfileScreen extends StatelessWidget {
   const PetProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Dados simulados para o perfil
     const petInfo = {
       'Nome': 'Rex',
       'Idade': '3 anos',
@@ -16,31 +16,65 @@ class PetProfileScreen extends StatelessWidget {
     };
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Perfil do Pet')),
+      appBar: AppBar(
+        title: Text('Perfil do Pet', style: GoogleFonts.inter()),
+        backgroundColor: const Color(0xFF5D3A9B),
+        centerTitle: true,
+      ),
       body: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 24),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(
-              child: CircleAvatar(
-                radius: 50,
-                backgroundImage: AssetImage('assets/images/pet_sample.png'),
-              ),
+            const CircleAvatar(
+              radius: 50,
+              backgroundImage: AssetImage('assets/images/pet_sample.png'),
             ),
             const SizedBox(height: 24),
-            ...petInfo.entries.map((entry) => Padding(
-                  padding: const EdgeInsets.only(bottom: 12),
-                  child: Text('${entry.key}: ${entry.value}',
-                      style: const TextStyle(fontSize: 18)),
-                )),
+            ...petInfo.entries.map(
+              (entry) => Padding(
+                padding: const EdgeInsets.symmetric(vertical: 6),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '${entry.key}: ',
+                      style: GoogleFonts.kumbhSans(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        entry.value,
+                        style: GoogleFonts.kumbhSans(fontSize: 18),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
             const Spacer(),
-            Center(
+            SizedBox(
+              width: double.infinity,
               child: ElevatedButton(
                 onPressed: () => Navigator.pop(context),
-                child: const Text('Voltar'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFFD9D4C8),
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(24),
+                  ),
+                ),
+                child: Text(
+                  'Voltar',
+                  style: GoogleFonts.kumbhSans(
+                    fontSize: 18,
+                    color: const Color(0xFF5D3A9B),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
-            )
+            ),
           ],
         ),
       ),
